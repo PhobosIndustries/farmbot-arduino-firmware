@@ -148,11 +148,10 @@
 
   // Type of encoder.
   // 0 = non-differential encoder, channel A,B
-  // 1 = differenttial encoder, channel A, A*, B, B*
-  // 2 = CANbus based encoder module
-  const long ENCODER_TYPE_X_DEFAULT = 2;
-  const long ENCODER_TYPE_Y_DEFAULT = 2;
-  const long ENCODER_TYPE_Z_DEFAULT = 2;
+  // 1 = differential encoder, channel A, A*, B, B*
+  const long ENCODER_TYPE_X_DEFAULT = 0;
+  const long ENCODER_TYPE_Y_DEFAULT = 0;
+  const long ENCODER_TYPE_Z_DEFAULT = 0;
 
   // Position = encoder position * scaling / 10000
   const long ENCODER_SCALING_X_DEFAULT = 5556;
@@ -231,6 +230,7 @@ enum MdlSpiEncoders
 
 enum CANbusEncoders
 {
+  // Remote CANbus module addresses, 1 for each motor
   ENC_X1_CAN = ENC_X1_CAN_ID,
   ENC_X2_CAN = ENC_X2_CAN_ID,
   ENC_Y_CAN = ENC_Y_CAN_ID,
