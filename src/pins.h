@@ -1,6 +1,7 @@
 #include "Board.h"
 
-#ifdef RAMPS_V14
+//#ifdef RAMPS_V14
+#if defined(RAMPS_V14) || defined(RAMPS_V14_CANBUS)
 
   // For RAMPS 1.4
 
@@ -38,20 +39,21 @@
   #define Z_ENCDR_A_Q 39
   #define Z_ENCDR_B_Q 41
 
-  #define UTM_C 63
-  #define UTM_D 59
+  #define UTM_C 63 // TOOL VERIFICATION
+  #define UTM_D 59 // SOIL SENSOR
   #define UTM_E 40
   #define UTM_F 64
   #define UTM_G 42
   #define UTM_H 44
   #define UTM_I 65
   #define UTM_J 66
-  #define UTM_K 52
-  #define UTM_L 53
+  #define UTM_K 57
+  #define UTM_L 58
 
   #define SDPOWER -1
-  #define SDSS 53
+  #define SDSS -1
   #define LED_PIN 13
+  #define CANBUS_CS 53
 
   #define FAN_PIN 9
 

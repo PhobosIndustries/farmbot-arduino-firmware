@@ -18,7 +18,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Command.h"
-
+#include <CAN.h>
 
 class StepperControl
 {
@@ -63,14 +63,14 @@ public:
   unsigned long i3 = 0;
   unsigned long i4 = 0;
 
+  StepperControlEncoder encoderX;
+  StepperControlEncoder encoderY;
+  StepperControlEncoder encoderZ;
+
 private:
   StepperControlAxis axisX;
   StepperControlAxis axisY;
   StepperControlAxis axisZ;
-
-  StepperControlEncoder encoderX;
-  StepperControlEncoder encoderY;
-  StepperControlEncoder encoderZ;
 
   //char serialBuffer[100];
   String serialBuffer;

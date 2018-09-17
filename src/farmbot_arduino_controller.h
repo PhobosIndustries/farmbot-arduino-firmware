@@ -10,6 +10,7 @@
 //add your includes for the project farmbot_arduino_controller here
 #include "Command.h"
 #include "GCodeProcessor.h"
+#include "CANbusFunctions.h"
 
 //end of add your includes here
 #ifdef __cplusplus

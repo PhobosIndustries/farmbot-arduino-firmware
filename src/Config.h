@@ -142,16 +142,17 @@
   const long MOVEMENT_STOP_AT_MAX_Z_DEFAULT = 0;
 
   // Use encoder (0 or 1)
-  const long ENCODER_ENABLED_X_DEFAULT = 0;
-  const long ENCODER_ENABLED_Y_DEFAULT = 0;
-  const long ENCODER_ENABLED_Z_DEFAULT = 0;
+  const long ENCODER_ENABLED_X_DEFAULT = 1;
+  const long ENCODER_ENABLED_Y_DEFAULT = 1;
+  const long ENCODER_ENABLED_Z_DEFAULT = 1;
 
-  // Type of enocder.
+  // Type of encoder.
   // 0 = non-differential encoder, channel A,B
   // 1 = differenttial encoder, channel A, A*, B, B*
-  const long ENCODER_TYPE_X_DEFAULT = 0;
-  const long ENCODER_TYPE_Y_DEFAULT = 0;
-  const long ENCODER_TYPE_Z_DEFAULT = 0;
+  // 2 = CANbus based encoder module
+  const long ENCODER_TYPE_X_DEFAULT = 2;
+  const long ENCODER_TYPE_Y_DEFAULT = 2;
+  const long ENCODER_TYPE_Z_DEFAULT = 2;
 
   // Position = encoder position * scaling / 10000
   const long ENCODER_SCALING_X_DEFAULT = 5556;
@@ -221,10 +222,29 @@ enum MdlSpiEncoders
   _MDL_Y = 0b0100,
   _MDL_Z = 0b1000,
 };
+
+// CANbus encoder module remote IDs
+#define ENC_X1_CAN_ID -1
+#define ENC_X2_CAN_ID 0x11
+#define ENC_Y_CAN_ID 0x12
+#define ENC_Z_CAN_ID 0x14
+
+enum CANbusEncoders
+{
+  ENC_X1_CAN = ENC_X1_CAN_ID,
+  ENC_X2_CAN = ENC_X2_CAN_ID,
+  ENC_Y_CAN = ENC_Y_CAN_ID,
+  ENC_Z_CAN = ENC_Z_CAN_ID,
+};
+  
 #endif /* CONFIG_H_ */
 
 #if defined(RAMPS_V14) && !defined(SOFTWARE_VERSION)
 #define SOFTWARE_VERSION "6.4.0.R\0"
+#endif
+
+#if defined(RAMPS_V14_CANBUS) && !defined(SOFTWARE_VERSION)
+#define SOFTWARE_VERSION "6.4.0.RC\0"
 #endif
 
 #if defined(FARMDUINO_V10) && !defined(SOFTWARE_VERSION)

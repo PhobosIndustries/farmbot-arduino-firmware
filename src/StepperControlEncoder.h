@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <SPI.h>
+#include <CAN.h>
 
 class StepperControlEncoder
 {
@@ -39,6 +40,10 @@ public:
   void setChannels(bool channelA, bool channelB, bool channelAQ, bool channelBQ);
   void shiftChannels();
   void test();
+  #if defined(RAMPS_V14_CANBUS)
+    // Load the id for CANbus based encoder module
+    void loadCANbusEncoderId(CANbusEncoders encoder);
+  #endif
 
 private:
   // pin settings
@@ -65,6 +70,10 @@ private:
   int encoderInvert;
 
   MdlSpiEncoders mdlEncoder = _MDL_X1;
+  
+  #if defined(RAMPS_V14_CANBUS)
+    CANbusEncoders CANbusEncoder = ENC_X2_CAN;
+  #endif
 
 };
 

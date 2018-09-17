@@ -186,6 +186,12 @@ void StepperControl::loadSettings()
   encoderY.loadMdlEncoderId(_MDL_Y);
   encoderZ.loadMdlEncoderId(_MDL_Z);
 
+  #ifdef RAMPS_V14_CANBUS
+    encoderX.loadCANbusEncoderId(ENC_X2_CAN);
+    encoderY.loadCANbusEncoderId(ENC_Y_CAN);
+    encoderZ.loadCANbusEncoderId(ENC_Z_CAN);
+  #endif
+
   encoderX.loadPinNumbers(X_ENCDR_A, X_ENCDR_B, X_ENCDR_A_Q, X_ENCDR_B_Q);
   encoderY.loadPinNumbers(Y_ENCDR_A, Y_ENCDR_B, Y_ENCDR_A_Q, Y_ENCDR_B_Q);
   encoderZ.loadPinNumbers(Z_ENCDR_A, Z_ENCDR_B, Z_ENCDR_A_Q, Z_ENCDR_B_Q);
@@ -411,7 +417,7 @@ int StepperControl::moveToCoords(double xDestScaled, double yDestScaled, double 
   while ((axisActive[0] || axisActive[1] || axisActive[2]) && !emergencyStop)
   {
 
-    #if defined(FARMDUINO_V14)
+    #if defined(FARMDUINO_V14) || defined(RAMPS_V14_CANBUS)
     checkEncoders();
     #endif
 
@@ -930,7 +936,7 @@ int StepperControl::calibrateAxis(int axis)
   while (!movementDone && error == 0)
   {
 
-    #if defined(FARMDUINO_V14)
+    #if defined(FARMDUINO_V14) || defined(RAMPS_V14_CANBUS)
       checkEncoders();
     #endif
 
@@ -1064,7 +1070,7 @@ int StepperControl::calibrateAxis(int axis)
   while (!movementDone && error == 0)
   {
 
-    #if defined(FARMDUINO_V14)
+    #if defined(FARMDUINO_V14) || defined(RAMPS_V14_CANBUS)
        checkEncoders();
     #endif
 
