@@ -25,14 +25,6 @@ bool previousEmergencyStop = false;
 unsigned long pinGuardLastCheck;
 unsigned long pinGuardCurrentTime;
 
-#if defined(RAMPS_V14_CANBUS)
-  //CANbusFunctions CANmaster;  // Preinstantiate
-  
-  //unsigned long CANbusUpdateCurrentTime = 0;
-  //unsigned long CANbusUpdateLastCheck = 0;
-  //int CANbusUpdateInterval = 400;
-#endif
-
 int lastParamChangeNr = 0;
 
 String commandString = "";
@@ -324,8 +316,7 @@ void setup()
     // CAN.onReceive(CANinterrupt); // FAILED. Could not work with existing Farmbot firmware as it stands. A workaround has been made within the loop() function
 
     // Initialise the CANbus remote modules
-    //CANmaster.CANbusInit();
-    CANbusFunctions::getInstance()->CANbusInit();
+    //CANbusFunctions::getInstance()->CANbusInit();
 
   #endif
 

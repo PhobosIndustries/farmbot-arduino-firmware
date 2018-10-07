@@ -447,22 +447,22 @@ void CANbusFunctions::decodeCAN()  {
   	  {
   		  // Set X2 position
   		  StepperControl::getInstance()->encoderX.setPositionByCAN(CANencoderVal[CANworkingIndex]);
-        StepperControl::getInstance()->axisX.setCurrentPosition(CANencoderVal[CANworkingIndex]);
-        CurrentState::getInstance()->setX(CANencoderVal[CANworkingIndex]);
+        //StepperControl::getInstance()->axisX.setCurrentPosition(CANencoderVal[CANworkingIndex]);
+        //CurrentState::getInstance()->setX(CANencoderVal[CANworkingIndex]);
   	  }
   	  if(CANincomingAddr[CANworkingIndex] == ENC_Y_CAN_ID)
   	  {
   		  // Set Y position
         StepperControl::getInstance()->encoderY.setPositionByCAN(CANencoderVal[CANworkingIndex]);
-        StepperControl::getInstance()->axisY.setCurrentPosition(CANencoderVal[CANworkingIndex]);
-        CurrentState::getInstance()->setY(CANencoderVal[CANworkingIndex]);
+        //StepperControl::getInstance()->axisY.setCurrentPosition(CANencoderVal[CANworkingIndex]);
+        //CurrentState::getInstance()->setY(CANencoderVal[CANworkingIndex]);
   	  }
   	  if(CANincomingAddr[CANworkingIndex] == ENC_Z_CAN_ID)
   	  {
   		  // Set Z position
         StepperControl::getInstance()->encoderZ.setPositionByCAN(CANencoderVal[CANworkingIndex]);
-        StepperControl::getInstance()->axisZ.setCurrentPosition(CANencoderVal[CANworkingIndex]);
-        CurrentState::getInstance()->setZ(CANencoderVal[CANworkingIndex]);
+        //StepperControl::getInstance()->axisZ.setCurrentPosition(CANencoderVal[CANworkingIndex]);
+        //CurrentState::getInstance()->setZ(CANencoderVal[CANworkingIndex]);
   	  }
     }
   }

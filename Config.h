@@ -57,7 +57,7 @@
   const int COMM_REPORT_CALIBRATE_STATUS_TO_END = 2;
   const int COMM_REPORT_CALIBRATE_STATUS_ERROR = -1;
 
-  const int MOVEMENT_INTERRUPT_SPEED = 12; //64; // Interrupt cycle in micro seconds
+  const int MOVEMENT_INTERRUPT_SPEED = 64; // Interrupt cycle in micro seconds
   //const int MOVEMENT_INTERRUPT_SPEED = 40; // Interrupt cycle in micro seconds
 
   const unsigned int MOVEMENT_SPEED_BASE_TIME = 2000;
@@ -102,28 +102,28 @@
   const long MOVEMENT_HOME_UP_Y_DEFAULT = 0;
   const long MOVEMENT_HOME_UP_Z_DEFAULT = 1;
 
-  const long MOVEMENT_STEP_PER_MM_X_DEFAULT = 40; //5;
-  const long MOVEMENT_STEP_PER_MM_Y_DEFAULT = 40; //5;
-  const long MOVEMENT_STEP_PER_MM_Z_DEFAULT = 200; //25;
+  const long MOVEMENT_STEP_PER_MM_X_DEFAULT = 5;
+  const long MOVEMENT_STEP_PER_MM_Y_DEFAULT = 5;
+  const long MOVEMENT_STEP_PER_MM_Z_DEFAULT = 100; //25;
 
   // Number of steps used for acceleration or deceleration
-  const long MOVEMENT_STEPS_ACC_DEC_X_DEFAULT = 2400; //300;
-  const long MOVEMENT_STEPS_ACC_DEC_Y_DEFAULT = 2400; //300;
+  const long MOVEMENT_STEPS_ACC_DEC_X_DEFAULT = 300;
+  const long MOVEMENT_STEPS_ACC_DEC_Y_DEFAULT = 300;
   const long MOVEMENT_STEPS_ACC_DEC_Z_DEFAULT = 2400; //9600; //300;
 
   // Minimum speed in steps per second
-  const long MOVEMENT_MIN_SPD_X_DEFAULT = 800; //0; // 300;//  50;
-  const long MOVEMENT_MIN_SPD_Y_DEFAULT = 800; //50; // 300;//  50;
+  const long MOVEMENT_MIN_SPD_X_DEFAULT = 50;
+  const long MOVEMENT_MIN_SPD_Y_DEFAULT = 50;
   const long MOVEMENT_MIN_SPD_Z_DEFAULT = 800; //1600; // 300;//  50;
 
   // Speed used for homing and calibration
-  const long MOVEMENT_HOME_SPEED_X_DEFAULT = 800; //50;// 300;//  50;
-  const long MOVEMENT_HOME_SPEED_Y_DEFAULT = 800; //50;// 300;//  50;
+  const long MOVEMENT_HOME_SPEED_X_DEFAULT = 50;
+  const long MOVEMENT_HOME_SPEED_Y_DEFAULT = 50;
   const long MOVEMENT_HOME_SPEED_Z_DEFAULT = 800; //1600;// 300;//  50;
 
   // Maximum speed in steps per second
-  const long MOVEMENT_MAX_SPD_X_DEFAULT = 8000; //500;// 400;
-  const long MOVEMENT_MAX_SPD_Y_DEFAULT = 8000; //500;// 400;
+  const long MOVEMENT_MAX_SPD_X_DEFAULT = 500;// 400;
+  const long MOVEMENT_MAX_SPD_Y_DEFAULT = 500;// 400;
   const long MOVEMENT_MAX_SPD_Z_DEFAULT = 8000; //16000;// 400;
 
   // switch the end contacts from NO to NC
@@ -230,9 +230,9 @@ enum MdlSpiEncoders
 #define ENC_Z_CAN_ID 0x14
 
 // Microstepping values for each axis
-#define X2_MICROSTEP 8
-#define Y_MICROSTEP 8
-#define Z_MICROSTEP 8
+#define X2_MICROSTEP 1
+#define Y_MICROSTEP 1
+#define Z_MICROSTEP 4
 
 // Time delay (minimum) between CANbus requests to prevent spamming
 #define CANBUS_REQUEST_INTERVAL 400 //200
